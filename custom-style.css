@@ -1,0 +1,67 @@
+/* Custom styles for Klinik Pratama Nurjinis hero section and buttons */
+
+.hero-content h1 {
+    color: #ffffff !important;
+    text-shadow: 7px 7px 11px rgba(0, 0, 0, 0.7) !important;
+    font-size: 5.5rem !important;
+    font-weight: 1000 !important;
+    line-height: 1.2 !important;
+}
+
+
+.hero-content p {
+    color: #ffffff !important;
+     text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.7) !important;
+    font-size: 2rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+}
+
+.btn-primary {
+    background-color: #216163 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #1b4d4d !important;
+    color: white !important;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: #216163 !important;
+    border: 2px solid #216163 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #216163 !important;
+    color: white !important;
+}
+
+/* Custom styles to reduce size of Layanan Kami section */
+.services {
+    padding: 20px 0 !important;
+}
+
+.services .section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.service-card {
+    padding: 1rem !important;
+}
+
+.service-card h3 {
+    font-size: 1.1rem !important;
+}
+
+.service-card p {
+    font-size: 0.9rem !important;
+}
+
+.service-icon {
+    width: 50px !important;
+    height: 50px !important;
+}

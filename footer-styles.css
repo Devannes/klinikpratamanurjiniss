@@ -1,0 +1,18 @@
+/* Footer Text Color Changes */
+.footer-section h3,
+.footer-section h4 {
+    color: var(--white) !important;
+}
+
+.footer-section ul li a {
+    color: var(--white) !important;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color) !important;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    color: var(--white) !important;
+}

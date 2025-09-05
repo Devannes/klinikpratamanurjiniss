@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Tim - Klinik Pratama Nurjinis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #2B7583;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .carousel-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            overflow: visible;
+            scroll-behavior: smooth;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+        .team-card {
+            background: #f0f7ff;
+            border-radius: 20px;
+            flex: 0 0 220px;
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        .team-photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+        .team-info {
+            padding: 15px 10px 20px;
+        }
+        .team-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+        .verified-badge {
+            background-color: #1DA1F2;
+            color: white;
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .verified-badge i {
+            font-size: 1rem;
+        }
+        .skill-tags {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .skill-tag {
+            background-color: #1DA1F2;
+            color: white;
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            user-select: none;
+        }
+        /* Pagination dots */
+        .carousel-pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .dot {
+            width: 14px;
+            height: 14px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .dot.active {
+            background-color: #1DA1F2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 0 10px;
+            }
+            .team-card {
+                flex: 0 0 180px;
+                min-width: 180px;
+            }
+            .team-photo {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-card {
+                flex: 0 0 150px;
+                min-width: 150px;
+            }
+            .team-photo {
+                width: 150px;
+                height: 150px;
+            }
+            .team-name {
+                font-size: 1.1rem;
+            }
+            .skill-tag {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+
+            /* Leadership section responsive */
+            .leadership-section {
+                padding: 0 10px;
+            }
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .leadership-card {
+                padding: 20px;
+            }
+            .leadership-icon {
+                font-size: 3rem;
+            }
+            .leadership-card h3 {
+                font-size: 1.5rem;
+            }
+            .leadership-card p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+       <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Klinik Logo" style="height: 40px; margin-right: 20px; vertical-align: middle;">
+                    <h2 style="display: inline; vertical-align: middle;">Klinik Pratama Nurjinis</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Profil Klinik</a>
+                        <div class="dropdown-content">
+                            <a href="index.html#health-info">Informasi klinik</a>
+                            <a href="index.html#services">Layanan Kami</a>
+                            <a href="struktur-tim.html">Struktur Klinik</a>
+                            <a href="sarana&prasarana.html#sarana&prasarana">Sarana & Prasarana</a>
+                            <a href="fasilitas.html">Fasilitas</a>
+                            <a href="kerja-sama.html">Kerja Sama</a>
+                        </div>
+                    </li>
+                   
+                    <li><a href="index.html#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div style="text-align: center; margin: 70px 0;">
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 10px;">Struktur Organisasi</h1>
+       
+    </div>
+
+    <div class="hierarchy-container" style="max-width: 350px; margin: 0 auto; text-align: center; font-family: 'Poppins', sans-serif;">
+        <!-- Top Level: Pimpinan -->
+    <div class="team-card" style="margin-bottom: 40px; margin-left: auto; margin-right: auto;" onclick="window.location.href='index.html#about'">
+        <img src="images/petugas/1.png" alt="Pimpinan" class="team-photo" />
+        <div class="team-info">
+            <div class="team-name">
+                Nurjinis, SKM
+                
+            </div>
+            <div class="skill-tags">
+                <span class="skill-tag">Pimpinan</span>
+                
+            </div>
+        </div>
+    </div>
+
+        <!-- Second Level: Two branches side by side -->
+        <div style="display: flex; justify-content: center; gap: 60px;">
+            <div class="team-card">
+                <img src="images/petugas/2.png" alt="Dokter Pengawas" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        dr. Hana Kristina Fani
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Dokter Pengawas</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="images/petugas/3.png" alt="Manajemen" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Hanif Bangun Nuranto, S.T., M.KKK.
+     
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Manajemen</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  <!-- Second Level: Two branches side by side -->
+        <div style="display: flex; justify-content: center; gap: 60px;">
+            <div class="team-card">
+                <img src="images/petugas/4.png" alt="Dokter Pengawas" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        dr. Firstson Yudithia Chevy
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Dokter Jaga</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="images/petugas/5.png" alt="Manajemen" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        drg. Fitri Anggini
+     
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Dokter Gigi</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Staff Section -->
+    <div style="text-align: center; margin: 60px 0 20px;">
+        <h2 style="font-size: 2rem; font-weight: 800; color: #333; margin-bottom: 10px;">Petugas</h2>
+        <p style="font-size: 1rem; color: #666;">Tim pendukung profesional yang melayani dengan sepenuh hati</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="team-card">
+                <img src="images/petugas/7.png" alt="Anggota Tim 1" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Ranti Nurita, A.Md.Kep.
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Perawat</span>
+                     
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/8.png" alt="Anggota Tim 2" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Devi Andriani, A.Md. Kep.
+                   
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Perawat</span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/9.png" alt="Anggota Tim 3" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Havid Hagusta H, A.Md. Kep
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Perawat</span>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/17.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                       Suci Rahmadani, A.Md. Kep
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Perawat</span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/10.png" alt="Anggota Tim 5" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Sovi Oktavia, A.Md. Keb
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan</span>
+                       
+                    </div>
+                </div>
+            </div>
+             <div class="team-card">
+                <img src="images/petugas/16.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Lydiana Dewi, A.Md. Keb
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan</span>
+                        
+                    </div>
+                </div>
+            </div>
+             <div class="team-card">
+                <img src="images/petugas/15.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Gloria Tambunan, S.Keb
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan </span>
+                        
+                    </div>
+                </div>
+            </div>
+             <div class="team-card">
+                <img src="images/petugas/18.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Egi Nurrani, S.Keb                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan</span> 
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/19.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Renda Maha Putri, A.Md.Keb                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan</span> 
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/14.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Nur Aini Putri, A.Md.Keb                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bidan</span> 
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="team-card">
+                <img src="images/petugas/11.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Harlina, A.Md. Ak
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Analis Kesehatan</span>
+                     
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/13.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Loli Amelia E, A.Md. Gz
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ahli Gizi</span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/12.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Apt. Novia Yuliance, S.Farm
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Apoteker</span>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="images/petugas/6.png" alt="Anggota Tim 4" class="team-photo" />
+                <div class="team-info">
+                    <div class="team-name">
+                        Sandrina Akbar, STr.Kes
+                       
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Admin</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-pagination" id="carouselPagination"></div>
+    </div>
+
+    <script>
+        let track, pagination, cards, cardWidth, visibleCards, currentIndex;
+
+        function initializeCarousel() {
+            track = document.getElementById('carouselTrack');
+            pagination = document.getElementById('carouselPagination');
+            cards = track.children;
+
+            // Clear existing pagination
+            pagination.innerHTML = '';
+
+            // Calculate dimensions after DOM is ready
+            setTimeout(() => {
+                const container = document.querySelector('.carousel-container');
+                const containerWidth = container.offsetWidth;
+                const cardStyle = window.getComputedStyle(cards[0]);
+                const cardMargin = parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+                cardWidth = cards[0].offsetWidth + cardMargin + 20; // card width + margins + gap
+                visibleCards = Math.floor(containerWidth / cardWidth) || 1;
+                currentIndex = 0;
+
+                createPagination();
+                updateCarousel();
+            }, 100);
+        }
+
+        function updateCarousel() {
+            if (!track || !cards.length) return;
+
+            const maxIndex = Math.max(0, cards.length - visibleCards);
+            currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+
+            // Smooth transform calculation
+            const translateX = -(currentIndex * cardWidth);
+            track.style.transform = `translateX(${translateX}px)`;
+            updatePagination();
+        }
+
+        function updatePagination() {
+            if (!pagination) return;
+
+            const dots = pagination.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function createPagination() {
+            if (!cards || !pagination) return;
+
+            const maxIndex = Math.max(0, cards.length - visibleCards);
+            const pageCount = maxIndex + 1;
+
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                pagination.appendChild(dot);
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializeCarousel);
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initializeCarousel, 250);
+        });
+
+        // Touch/swipe support
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) { // Minimum swipe distance
+                if (diff > 0 && currentIndex < cards.length - visibleCards) {
+                    currentIndex++;
+                } else if (diff < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+                updateCarousel();
+            }
+        });
+    </script>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="Logo Klinik Nurjinis" style="height: 90px; margin-right: 90px;">
+                        <h3>Klinik Pratama Nurjinis</h3>
+                    </div>
+                    <p>Layanan kesehatan profesional dengan standar tertinggi untuk masyarakat.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#services">Layanan Kami</a></li>
+                        <li><a href="index.html#health-info">Informasi Klinik</a></li>
+                        <li><a href="struktur-tim.html">Struktur Klinik</a></li>
+                        <li><a href="sarana&prasarana.html">Sarana & Prasarana</a></li>
+                        <li><a href="fasilitas.html">Fasilitas</a></li>
+                        <li><a href="index.html#contact">Kontak</a></li>
+                        <li><a href="kerja-sama.html">Kerja Sama</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Kami</h4>
+                    <div class="social-links">
+                       
+                        <a href="https://www.instagram.com/klinik.nurjinis/" target="_blank">
+                            <i class="fab fa-instagram"></i></a>
+
+                      <a href="https://www.linkedin.com/company/pt-klinik-pratama-nurjinis/" target="_blank">
+                            <i class="fab fa-linkedin"></i></a>
+
+                    <a href="https://www.facebook.com/share/1CEou6MA1g/" target="_blank">
+                            <i class="fab fa-facebook"></i></a>
+                    
+                    <a href="https://www.tiktok.com/@klinik.nurjinis?_t=ZS-8zRT4EZI6ps&_r=1" target="_blank">
+                            <i class="fab fa-tiktok"></i></a>
+
+                    <a href="https://api.whatsapp.com/send/?phone=6281267748388&text=Hallo+dok&type=phone_number&app_absent=0" target="_blank">
+                            <i class="fab fa-whatsapp"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Klinik Pratama Nurjinis</p>
+                <p>Devannes tri Adha & Ari Apri Nofriansya</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
