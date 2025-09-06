@@ -771,22 +771,25 @@ body {
 }
 
 /* Mitra Kami Section */
+/* Mitra Kami Section */
 .partners {
     padding: 80px 0;
     background: var(--new-background-color);
 }
 
 .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 3rem;
 }
 
 .partner-item {
+    flex: 0 1 300px;
     background: var(--new-background-color);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 4rem;
+    border-radius: 30px;
     box-shadow: var(--shadow);
     text-align: center;
     transition: var(--transition);
