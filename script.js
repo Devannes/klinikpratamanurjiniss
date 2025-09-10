@@ -15,6 +15,17 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
 });
 
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const navContainer = document.querySelector('.nav-container');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    navContainer.classList.toggle('active');
+});
+
 // Scroll-triggered animations for contact section
 const observerOptions = {
     threshold: 0.1,
@@ -42,27 +53,41 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+// Smooth scrolling for navigation links
+const navLinks = document.querySelectorAll('a[href^="#"]');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
 
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
 
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+        if (targetSection) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetSection.offsetTop - headerHeight - 20;
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            // Show header when navigation link is clicked (e.g., "Profil Klinik")
+            const header = document.querySelector('.header');
+            header.classList.remove('header--hidden');
+
+            // Close hamburger menu if open
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navContainer = document.querySelector('.nav-container');
+            if (hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                navContainer.classList.remove('active');
             }
-        });
+        }
     });
+});
 
     // Carousel functionality
     const slides = document.querySelectorAll('.carousel-slide');
