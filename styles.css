@@ -10,6 +10,62 @@
     }
 }
 
+/* Dropdown menu for Profil Klinik */
+.nav-menu .dropdown {
+    position: relative;
+}
+
+.nav-menu .dropbtn {
+    cursor: pointer;
+    padding: 10px 15px;
+    display: inline-block;
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 180px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+
+.nav-menu .dropdown-content a {
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-menu .dropdown-content a:hover {
+    background-color: var(--light-gray);
+}
+
+/* Show dropdown on hover */
+.nav-menu .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .nav-menu .dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
+    .nav-menu .dropdown-content a {
+        padding: 10px 15px;
+    }
+}
+
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -265,7 +321,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -280,6 +336,11 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu a {
@@ -323,6 +384,7 @@ body {
     transition: var(--transition);
 }
 
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -352,6 +414,11 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .hero-content h1 {
@@ -777,18 +844,16 @@ body {
 }
 
 .partners-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
 
 .partner-item {
-    flex: 0 1 300px;
     background: var(--new-background-color);
-    padding: 4rem;
-    border-radius: 30px;
+    padding: 2rem;
+    border-radius: 15px;
     box-shadow: var(--shadow);
     text-align: center;
     transition: var(--transition);
@@ -1480,6 +1545,7 @@ body {
 }
 
 /* Responsive Design for Team Section */
+/* Mobile Responsive Styles for max-width 768px */
 @media (max-width: 768px) {
     .team-stats {
         grid-template-columns: repeat(3, 1fr);
@@ -1541,7 +1607,11 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
     }
     
     .nav-menu {
@@ -1560,25 +1630,274 @@ body {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
-    .category-title {
-        font-size: 1.5rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
+    /* General adjustments */
+    .container {
+        padding: 0 10px;
     }
-    
-    .team-member {
+
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 0.6rem;
+        line-height: 1.3;
+    }
+
+    .hero-content p {
+        font-size: 0.3rem;
+        line-height: 1.4;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        margin: 0 5px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 0,5rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-card {
         padding: 1.5rem;
     }
-    
+
+    .service-card h3 {
+        font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.8rem;
+    }
+
+    .service-image {
+        height: 120px;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        max-height: 120px;
+    }
+
+    /* Team */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .team-member.modern-card {
+        padding: 1rem;
+    }
+
     .member-photo {
-        width: 80px;
-        height: 80px;
-        font-size: 2rem;
+        width: 70px;
+        height: 70px;
+    }
+
+    .member-info h4 {
+        font-size: 1rem;
+    }
+
+    .member-role {
+        font-size: 0.8rem;
+    }
+
+    .member-desc {
+        font-size: 0.8rem;
+    }
+
+    /* Contact */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .contact-item h3 {
+        font-size: 0.9rem;
+    }
+
+    .contact-item p {
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-section {
+        margin-right: 0;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    /* Partners */
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .partner-item {
+        padding: 1rem;
+    }
+
+    .partner-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* About */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.8rem;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-height: 250px;
+    }
+
+    /* Accreditation */
+    .accreditation-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .certificate-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .accreditation-description p {
+        font-size: 0.8rem;
+    }
+
+    /* Awards */
+    .awards-marquee {
+        margin-top: 2rem;
+    }
+
+    .award-item {
+        min-width: 150px;
+        padding: 1rem;
+    }
+
+    .award-item img {
+        max-height: 120px;
+    }
+
+    /* Team Carousel */
+    .team-card {
+        flex: 0 0 140px;
+        padding: 1rem;
+    }
+
+    .member-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .member-name {
+        font-size: 1rem;
+    }
+
+    .skill-tag {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    /* Health Info */
+    .health-info-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .health-info-item {
+        padding: 1rem;
+    }
+
+    .health-info-item img,
+    .health-info-item video {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .health-info-item h3 {
+        font-size: 1rem;
+    }
+
+    .health-info-item p {
+        font-size: 0.8rem;
+    }
+
+    /* Navigation */
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .logo h2 {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu.active {
+        padding: 0.5rem 0;
+    }
+
+    .nav-menu.active li {
+        padding: 0.5rem 1rem;
+    }
+
+    /* Carousel */
+    .carousel-controls {
+        padding: 0 10px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
     }
 }
 .dropdown-content {
@@ -1981,985 +2300,31 @@ body {
     }
 }
 
-/* Comprehensive Responsive Design for All Pages */
-
-/* Large Desktops (1200px and up) */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1400px;
-    }
-
-    .hero-content h1 {
-        font-size: 4rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .partners-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-/* Medium Desktops (992px to 1199px) */
-@media (max-width: 1199px) {
-    .container {
-        max-width: 1000px;
-    }
-
-    .hero-content h1 {
-        font-size: 3.2rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .partners-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .about-content {
-        gap: 3rem;
-    }
-
-    .contact-content {
-        gap: 3rem;
-    }
-}
-
-/* Small Desktops and Tablets (768px to 991px) */
-@media (max-width: 991px) {
-    .container {
-        max-width: 750px;
-        padding: 0 15px;
-    }
-
-    .nav-container {
-        padding: 0 15px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .btn-primary, .btn-secondary {
-        padding: 10px 25px;
-        font-size: 0.9rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .partners-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .about-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .about-text h2 {
-        font-size: 2.2rem;
-    }
-
-    .contact-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .footer-section {
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .accreditation-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .certificate-image {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .facility-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-}
-
-/* Small Tablets (576px to 767px) */
-@media (max-width: 767px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .nav-container {
-        padding: 0 10px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .btn-primary, .btn-secondary {
-        padding: 8px 20px;
-        font-size: 0.85rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .service-card {
-        padding: 1.5rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-text h2 {
-        font-size: 2rem;
-    }
-
-    .contact-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .contact-item i {
-        min-width: auto;
-        margin-top: 0;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .accreditation-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .certificate-image {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .facility-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .facility-description {
-        padding: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .category-title {
-        font-size: 1.8rem;
-    }
-
-    .member-photo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .member-info h4 {
-        font-size: 1.2rem;
-    }
-
-    .member-role {
-        font-size: 0.9rem;
-    }
-
-    .member-desc {
-        font-size: 0.9rem;
-    }
-
-    .modal-content {
-        padding: 1.5rem;
-        margin: 1rem;
-    }
-
-    .carousel-wrapper {
-        padding: 0 10px;
-    }
-
-    .team-card {
-        flex: 0 0 250px;
-    }
-}
-
-/* Phones (480px to 575px) */
-@media (max-width: 575px) {
-    .container {
-        padding: 0 8px;
-    }
-
-    .nav-container {
-        padding: 0 8px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .btn-primary, .btn-secondary {
-        padding: 8px 18px;
-        font-size: 0.8rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .service-card {
-        padding: 1.2rem;
-    }
-
-    .service-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .service-card p {
-        font-size: 0.85rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        max-height: 250px;
-    }
-
-    .partners-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-text h2 {
-        font-size: 1.8rem;
-    }
-
-    .about-image img {
-        width: 100%;
-        max-height: 250px;
-    }
-
-    .contact-item {
-        padding: 1rem;
-    }
-
-    .contact-item h3 {
-        font-size: 1.1rem;
-    }
-
-    .contact-item p {
-        font-size: 0.9rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    .contact-form button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-section h3,
-    .footer-section h4 {
-        font-size: 1.3rem;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-number {
-        font-size: 1.8rem;
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-    }
-
-    .accreditation-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .certificate-image {
-        width: 100%;
-        max-width: 250px;
-    }
-
-    .facility-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .facility-description {
-        padding: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .category-title {
-        font-size: 1.5rem;
-    }
-
-    .member-photo {
-        width: 80px;
-        height: 80px;
-    }
-
-    .member-info h4 {
-        font-size: 1.1rem;
-    }
-
-    .member-role {
-        font-size: 0.85rem;
-    }
-
-    .member-desc {
-        font-size: 0.85rem;
-    }
-
-    .modal-content {
-        padding: 1rem;
-        margin: 0.5rem;
-    }
-
-    .carousel-wrapper {
-        padding: 0 8px;
-    }
-
-    .team-card {
-        flex: 0 0 200px;
-    }
-
-    .member-name {
-        font-size: 1.2rem;
-    }
-
-    .skill-tag {
-        font-size: 0.8rem;
-        padding: 4px 8px;
-    }
-
-    .health-info-grid {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .health-info-item {
-        padding: 1rem;
-    }
-
-    .health-info-item h3 {
-        font-size: 1.1rem;
-    }
-
-    .health-info-item p {
-        font-size: 0.9rem;
-    }
-
-    .timeline-container {
-        padding-left: 20px;
-    }
-
-    .timeline-item {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .timeline-image {
-        max-width: 100%;
-    }
-
-    .timeline-flex-row {
-        flex-direction: column;
-    }
-
-    .timeline-flex-row .timeline-image {
-        width: 100%;
-        margin-right: 0;
-    }
-
-    .timeline-flex-row .timeline-content {
-        width: 100%;
-    }
-}
-
-/* Very Small Phones (below 480px) */
-@media (max-width: 479px) {
-    .container {
-        padding: 0 5px;
-    }
-
-    .nav-container {
-        padding: 0 5px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-content p {
-        font-size: 0.8rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .btn-primary, .btn-secondary {
-        padding: 6px 15px;
-        font-size: 0.75rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-    }
-
-    .service-card {
-        padding: 1rem;
-    }
-
-    .service-card h3 {
-        font-size: 1rem;
-    }
-
-    .service-card p {
-        font-size: 0.8rem;
-    }
-
-    .service-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        max-height: 200px;
-    }
-
-    .partners-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .partner-item {
-        padding: 1.5rem;
-    }
-
-    .about-text h2 {
-        font-size: 1.6rem;
-    }
-
-    .about-image img {
-        width: 100%;
-        max-height: 200px;
-    }
-
-    .contact-item {
-        padding: 0.8rem;
-    }
-
-    .contact-item h3 {
-        font-size: 1rem;
-    }
-
-    .contact-item p {
-        font-size: 0.85rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.7rem;
-        font-size: 0.85rem;
-    }
-
-    .contact-form button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .footer-section h3,
-    .footer-section h4 {
-        font-size: 1.2rem;
-    }
-
-    .footer-section ul li {
-        margin-bottom: 0.3rem;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-number {
-        font-size: 1.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.75rem;
-    }
-
-    .accreditation-content {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .certificate-image {
-        width: 100%;
-        max-width: 200px;
-    }
-
-    .facility-content {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .facility-description {
-        padding: 0.8rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .category-title {
-        font-size: 1.3rem;
-    }
-
-    .member-photo {
-        width: 70px;
-        height: 70px;
-    }
-
-    .member-info h4 {
-        font-size: 1rem;
-    }
-
-    .member-role {
-        font-size: 0.8rem;
-    }
-
-    .member-desc {
-        font-size: 0.8rem;
-    }
-
-    .modal-content {
-        padding: 0.8rem;
-        margin: 0.3rem;
-    }
-
-    .carousel-wrapper {
-        padding: 0 5px;
-    }
-
-    .team-card {
-        flex: 0 0 160px;
-    }
-
-    .member-name {
-        font-size: 1rem;
-    }
-
-    .skill-tag {
-        font-size: 0.75rem;
-        padding: 3px 6px;
-    }
-
-    .health-info-grid {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .health-info-item {
-        padding: 0.8rem;
-    }
-
-    .health-info-item h3 {
-        font-size: 1rem;
-    }
-
-    .health-info-item p {
-        font-size: 0.85rem;
-    }
-
-    .timeline-container {
-        padding-left: 15px;
-    }
-
-    .timeline-item {
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 0.8rem;
-    }
-
-    .timeline-image {
-        max-width: 100%;
-    }
-
-    .timeline-flex-row {
-        flex-direction: column;
-    }
-
-    .timeline-flex-row .timeline-image {
-        width: 100%;
-        margin-right: 0;
-    }
-
-    .timeline-flex-row .timeline-content {
-        width: 100%;
-    }
-
-    .timeline-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .timeline-content p {
-        font-size: 0.9rem;
-    }
-
-    .award-item {
-        min-width: 150px;
-        padding: 1rem;
-    }
-
-    .award-item img {
-        max-height: 150px;
-    }
-}
-
-/* Mobile Navigation */
 @media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--new-background-color);
+        display: none;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        width: 100%;
+        background-color: var(--new-background-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 10px 10px;
         z-index: 999;
     }
 
     .nav-menu.active {
-        transform: translateY(0);
+        display: flex;
+        padding: 0.5rem 0;
     }
 
-    .nav-menu a {
-        font-size: 1.2rem;
-        margin: 1rem 0;
+    .nav-menu.active li {
         padding: 0.5rem 1rem;
-        width: 80%;
-        text-align: center;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-        background: var(--primary-color);
-        color: var(--white);
-        transform: scale(1.05);
     }
 
     .hamburger {
         display: flex;
-        z-index: 1000;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    .hamburger span {
-        transition: all 0.3s ease;
-    }
-}
-
-/* Touch-friendly elements for mobile */
-@media (max-width: 768px) {
-    .btn-primary, .btn-secondary {
-        min-height: 44px;
-        min-width: 44px;
-    }
-
-    .service-link, .gallery-item, .partner-item {
-        min-height: 44px;
-    }
-
-    .carousel-prev, .carousel-next {
-        width: 60px;
-        height: 60px;
-        font-size: 2.5rem;
-    }
-
-    .lightbox-nav {
-        width: 60px;
-        height: 60px;
-        font-size: 3.5rem;
-    }
-
-    .social-links a {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
-    }
-
-    .pagination-dot {
-        width: 16px;
-        height: 16px;
-        margin: 0 8px;
-    }
-
-    .indicator {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-/* Landscape orientation for mobile devices */
-@media (max-width: 767px) and (orientation: landscape) {
-    .hero {
-        min-height: 80vh;
-        padding: 80px 0 40px;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .services {
-        padding: 40px 0;
-    }
-
-    .gallery {
-        padding: 40px 0;
-    }
-
-    .contact {
-        padding: 40px 0;
-    }
-
-    .about {
-        padding: 40px 0;
-    }
-
-    .team-structure {
-        padding: 40px 0;
-    }
-
-    .accreditation {
-        padding: 40px 0;
-    }
-
-    .facility-detail {
-        padding: 40px 0;
-    }
-}
-
-/* High-resolution displays */
-@media (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2),
-       (min-width: 1200px) and (min-resolution: 192dpi) {
-    .hero-content h1 {
-        text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-content p {
-        text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .service-card, .gallery-item, .partner-item {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .service-card:hover, .gallery-item:hover, .partner-item:hover {
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    }
-}
-
-/* Print styles */
-@media print {
-    .header, .footer, .hero-carousel, .carousel-controls, .lightbox-nav, .modal-overlay {
-        display: none !important;
-    }
-
-    .container {
-        max-width: none;
-        padding: 0;
-    }
-
-    .hero {
-        min-height: auto;
-        padding: 20px 0;
-        background: none;
-    }
-
-    .hero-content h1 {
-        color: var(--primary-color);
-        text-shadow: none;
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        color: var(--text-color);
-        text-shadow: none;
-        font-size: 1rem;
-    }
-
-    .btn-primary, .btn-secondary {
-        display: none;
-    }
-
-    .service-card, .gallery-item, .partner-item {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
-
-    .contact-form {
-        display: none;
-    }
-
-    .contact-info {
-        display: block;
-    }
-
-    .contact-item {
-        break-inside: avoid;
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 10px;
     }
 }
 }
